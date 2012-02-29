@@ -67,7 +67,6 @@ def trial(guesses):
 	
 	guess_times = sorted(guess_times.items(), key=itemgetter(1), reverse=False)
 	
-	delta_guess_times = [guess_times[i][1] - guess_times[i - 1][1] for i in range(1, len(guess_times))]
 	partition = first_unique_local_maximum_of_integral([guess_times[i][1] for i in range(0, len(guess_times) - 1)])
 	
 	return [guess_times[i][0] for i in range(partition)]
