@@ -10,6 +10,19 @@ PROCESS			= "/levels/level06"
 PASSWORD_FILE	= "/home/the-flag/.password"
 TRIALS			= 2
 
+def stdout_write(string):
+	"""
+	Writes to and flushes stdout.
+	
+	Keyword arguments:
+	string -- String. The string to write.
+	
+	"""
+	sys.stdout.write(string)
+	sys.stdout.flush()
+	
+	return None
+
 
 def is_correct(password):
 	"""
@@ -59,7 +72,6 @@ def trial(guesses):
 	guesses -- List. Characters to try.
 	
 	"""
-	
 	guess_times = dict((character, 0.0) for character in guesses)
 	for character in guesses:
 		for trial in range(TRIALS):
@@ -113,8 +125,6 @@ while not is_correct(password):
 	if len(guesses) > 0:
 		password += guesses[0]
 		
-		sys.stdout.write(guesses[0])
-		sys.stdout.flush()
+		stdout_write(guesses[0])
 
-sys.stdout.write('\n')
-sys.stdout.flush()
+stdout_write('\n')
