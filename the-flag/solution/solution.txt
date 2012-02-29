@@ -1,0 +1,2 @@
+$ ssh the-flag@ctf.stri.pe
+	Password: theflagl0eFTtT5oi0nOTxO5

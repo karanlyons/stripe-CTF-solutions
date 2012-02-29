@@ -1,0 +1,27 @@
+   __
+  (__)
+   ||______________________________
+   ||                              |
+   ||      _        _              |
+   ||  ___| |_ _ __(_)_ __   ___   |
+   || / __| __| '__| | '_ \ / _ \  |
+   || \__ \ |_| |  | | |_) |  __/  |
+   || |___/\__|_|  |_| .__/ \___|  |
+   ||                |_|           |
+   ||                              |
+   ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ||
+   ||
+   ||
+   ||
+
+Congratulations on making it to level 4!
+
+The password for the next level is in /home/level05/.password. As
+before, you may find /levels/level04 and /levels/level04.c useful.
+The vulnerabilities overfloweth!
+
+There are 6 levels in this CTF; if you're stuck, feel free to email
+ctf@stripe.com for guidance.
+
+Best of luck!

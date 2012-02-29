@@ -1,0 +1,8 @@
+$ ssh level06@ctf.stri.pe
+	Password: SF2w8qU1QDj
+
+$ mkdir /tmp/hacks
+$ vi /tmp/hacks/timing.py
+
+$ python /tmp/hacks/timing.py
+	theflagl0eFTtT5oi0nOTxO5

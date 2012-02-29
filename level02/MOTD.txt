@@ -1,0 +1,30 @@
+   __
+  (__)
+   ||______________________________
+   ||                              |
+   ||      _        _              |
+   ||  ___| |_ _ __(_)_ __   ___   |
+   || / __| __| '__| | '_ \ / _ \  |
+   || \__ \ |_| |  | | |_) |  __/  |
+   || |___/\__|_|  |_| .__/ \___|  |
+   ||                |_|           |
+   ||                              |
+   ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ||
+   ||
+   ||
+   ||
+
+Congratulations on making it to level 2!
+
+The password for the next level is in /home/level03/.password. This
+one is a web-based vulnerability, so go ahead and point your browser
+to http://ctf.stri.pe/level02.php. You'll need to provide the password
+for level02 using HTTP digest authentication.
+
+You can find the source code for level02.php in /var/www/.
+
+There are 6 levels in this CTF; if you're stuck, feel free to email
+ctf@stripe.com for guidance.
+
+Best of luck!
