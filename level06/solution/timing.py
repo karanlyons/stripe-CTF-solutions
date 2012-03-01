@@ -41,9 +41,9 @@ def is_correct(password):
 	return False
 
 
-def first_unique_local_maximum_of_integral(data):
+def first_unique_local_maximum_of_derivative(data):
 	"""
-	Returns the index as an int of the first unique local maximum of the integral of a list of data.
+	Returns the index as an int of the first unique local maximum of the derivative of a list of data.
 	
 	Keyword arguments:
 	data -- List. Numerical data.
@@ -79,7 +79,7 @@ def trial(guesses):
 	
 	guess_times = sorted(guess_times.items(), key=itemgetter(1), reverse=False)
 	
-	partition = first_unique_local_maximum_of_integral([guess_times[i][1] for i in range(0, len(guess_times) - 1)])
+	partition = first_unique_local_maximum_of_derivative([guess_times[i][1] for i in range(0, len(guess_times) - 1)])
 	
 	return [guess_times[i][0] for i in range(partition)]
 
