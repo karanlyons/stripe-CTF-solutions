@@ -11,7 +11,7 @@ For posterity, mostly. I had a lot of fun completing the challenge, and even mad
 Each folder corresponds to a level. In them is the message of the day printed when you logged in, any associated files, and a solution folder with the steps taken to find exploit the level, and any associated files required for the exploit.
 
 ## To Do
-* Add the alternate, magical level04 solution, and an in depth explanation of how it works.
+* Add an in depth explanation of how the magical solution to `level04` works.
 
 ## Credit Where It’s Due
 A lot of the various improvements and implementations in level06’s timing attack, and the (forthcoming) explanation to the magical level04 solution are the result of my work with [Thomas Hebb](https://github.com/tchebb) and [Alex Yakoubian](https://github.com/alex3). We spent days bouncing off ideas to improve our timing attacks and stepping through level04 instruction by instruction to explain my magical solution. My work on the CTF would not be nearly as good without them.
