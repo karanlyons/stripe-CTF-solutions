@@ -11,8 +11,6 @@ For posterity, mostly. I had a lot of fun completing the challenge, and even mad
 Each folder corresponds to a level. In them is the message of the day printed when you logged in, any associated files, and a solution folder with the steps taken to find exploit the level, and any associated files required for the exploit.
 
 ## To Do
-* Add wrong guess detection to level06’s timing attack.
-* Better comment level 06’s timing attack.
 * Add the alternate, magical level04 solution, and an in depth explanation of how it works.
 
 ## Credit Where It’s Due

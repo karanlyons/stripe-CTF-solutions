@@ -63,7 +63,7 @@ def first_unique_local_maximum_of_derivative(data):
 
 def trial(guesses):
 	"""
-	Returns the index as an int of the first local maximum in an list of data.
+	Returns a culled list of guesses based on the results of the timing attack.
 	
 	Keyword arguments:
 	guesses -- List. Characters to try.
@@ -142,9 +142,13 @@ if __name__ == '__main__':
 		while len(guesses) > 1:
 			guesses = list(set(trial(guesses)) & set(trial(guesses)))
 		
-		if len(guesses) > 0:
+		if len(guesses) == 1:
 			password += guesses[0]
 			
 			stdout_write(guesses[0])
+		
+		else:
+			password = password[0:-1]
+			stdout_write('\b \b')
 	
 	stdout_write('\n')
