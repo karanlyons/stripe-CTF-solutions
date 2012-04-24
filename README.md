@@ -8,7 +8,7 @@
 For posterity, mostly. I had a lot of fun completing the challenge, and even made some friends along the way. Now that it’s over, sharing our solutions lets us all compare our methods and learn from one another. Also, brag a little bit.
 
 ## How?
-Each folder corresponds to a level. In them is the message of the day printed when you logged in, any associated files, and a solution folder with the steps taken to find exploit the level, and any associated files required for the exploit.
+Each folder corresponds to a level. In the folders is the message of the day printed when you logged in, any associated files, a solution folder with the steps taken and code used to exploit the level, and an explanation of how the exploit was found and works.
 
 ## To Do
 * Add an in depth explanation of how the magical solution to `level04` works.
