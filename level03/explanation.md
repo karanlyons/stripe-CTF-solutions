@@ -9,7 +9,7 @@ level03
 	[0] to_upper	[1] to_lower
 	[2] capitalize	[3] length
 	
-	$ /Users/karanlyons/Desktop/level03 0 "uppercase"
+	$ ./level03 0 "uppercase"
 	Uppercased string: UPPERCASE
 
 If we take a look at the source, we can see on line 68 that the options are stored in `fns` as an array of pointers to the various string manipulation functions. We can also see `run()` on line 50, which helpfully calls `system()`. If we can get `level03` to call our `run()` with our string, we can get `level03` to run whatever we want, just like in `level01`.
